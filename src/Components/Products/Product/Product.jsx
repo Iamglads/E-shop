@@ -7,11 +7,11 @@ import useStyles from './Style'
 
 
 
-const Product = ( { product }) => {
+const Product = ( { product, updateCart }) => {
     const classes = useStyles();
 
    
-    console.log(product)
+    //console.log(product)
     return (
         <Card className={ classes.root}>
             <CardMedia className={ classes.media} image={ product.image.url} title={ product.name}/>
@@ -27,7 +27,7 @@ const Product = ( { product }) => {
                 <Typography dangerouslySetInnerHTML={{ __html: product.description}} variant="body2" />
             </CardContent>
             <CardActions disableSpacing className={classes.cardActions}>
-                <IconButton aria-label="Ajouter au panier">
+                <IconButton aria-label="Ajouter au panier" onClick={() => updateCart(product.id, 1)}>
                     <AddShoppingCart />
                 </IconButton>
             </CardActions>
