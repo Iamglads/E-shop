@@ -2,7 +2,7 @@ import React, { useState, useEffect } from "react";
 import { commerce } from "./lib/commerce";
 import "./App.css";
 
-import { Products, NavBar } from "./Components";
+import { Products, NavBar, Cart } from "./Components";
 
 const App = () => {
   const [products, setProducts] = useState([]);
@@ -33,6 +33,7 @@ const App = () => {
       <NavBar totalItems={cart.total_items} />
       <div className="main__container">
         <Products products={products} updateCart={updateCart} />
+        <Cart cart={cart} />
       </div>
     </div>
   );
