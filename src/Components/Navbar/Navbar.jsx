@@ -1,8 +1,12 @@
 import React from 'react';
 import { AppBar, Toolbar, IconButton, Badge, Typography } from '@material-ui/core';
 import { ShoppingCart } from '@material-ui/icons';
+import { Link } from 'react-router-dom'
+import { useLocation } from 'react-router-dom';
 
 const Navbar = (props) => {
+
+    const location = useLocation()
     return (
         <div>
             <AppBar position='fixed' color='inherit'>
@@ -11,11 +15,14 @@ const Navbar = (props) => {
                         E-shop
                     </Typography>
                     <div>
-                        <IconButton aria-label="Afficher le panier">
-                            <Badge badgeContent={props.totalItems}>
-                                <ShoppingCart />
-                            </Badge>
-                        </IconButton>
+                        <Link to="/cart"></Link>
+                        { location.pathname === '/' ? (
+                            <IconButton component={Link} to="/cart" aria-label="Afficher le panier">
+                                <Badge badgeContent={props.totalItems}>
+                                    <ShoppingCart />
+                                </Badge>
+                            </IconButton>) : null
+                        }
                     </div>
                 </Toolbar>
             </AppBar>
