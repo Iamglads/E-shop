@@ -1,37 +1,27 @@
-
-import React from 'react'
-import { Card, CardMedia, CardContent, CardActions, Typography, IconButton } from '@material-ui/core'
-import { AddShoppingCart } from '@material-ui/icons';
-
-import useStyles from './Style'
+import React, { Fragment } from 'react'
+import { Typography } from '@material-ui/core'
+import { AddShoppingCart } from '@material-ui/icons'
+import './Product.css'
 
 
 
-const Product = ( { product, updateCart }) => {
-    const classes = useStyles();
-
-   
+const Product = ( { product, updateCart }) => {   
     //console.log(product)
     return (
-        <Card className={ classes.root}>
-            <CardMedia className={ classes.media} image={ product.image.url} title={ product.name}/>
-            <CardContent>
-                <div className={classes.cardContent}>
-                    <Typography variant="h5" gutterBottom>
-                        { product.name }
-                    </Typography>
-                    <Typography variant="h4">
-                        { product.price.formatted_with_symbol } €
-                    </Typography>
+        <Fragment>
+            <div className="container__product">
+                <div className='product-image'>
+                    <img className="media" src={ product.image.url} alt={ product.name}/>
                 </div>
-                <Typography dangerouslySetInnerHTML={{ __html: product.description}} variant="body2" />
-            </CardContent>
-            <CardActions disableSpacing className={classes.cardActions}>
-                <IconButton aria-label="Ajouter au panier" onClick={() => updateCart(product.id, 1)}>
-                    <AddShoppingCart />
-                </IconButton>
-            </CardActions>
-        </Card>
+                <div className="product-content">
+                    <h3>{ product.name }</h3>
+                    <h4>{ product.price.formatted_with_symbol }</h4>
+                    <button className='btn-see-cart' onClick={() => updateCart(product.id, 1)}>
+                        Voir le produit
+                    </button>
+                </div>
+            </div>
+        </Fragment>
     )
 }
  

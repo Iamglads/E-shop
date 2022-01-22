@@ -3,7 +3,7 @@ import { commerce } from "./lib/commerce";
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import "./App.css";
 
-import { Products, NavBar, Cart } from "./Components";
+import { Home, NavBar, Cart, Footer, About, Contact } from "./Components";
 
 const App = () => {
   const [products, setProducts] = useState([]);
@@ -53,7 +53,7 @@ const App = () => {
             <Route
               exact
               path="/"
-              element={<Products products={products} updateCart={updateCart} />}
+              element={<Home products={products} updateCart={updateCart} />}
             />
             <Route
               exact
@@ -67,8 +67,11 @@ const App = () => {
                 />
               }
             />
+            <Route exact path="/about" element={<About />} />
+            <Route exact path="/contact" element={<Contact />} />
           </Routes>
         </div>
+        <Footer />
       </div>
     </Router>
   );

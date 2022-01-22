@@ -1,4 +1,10 @@
+body {
+  margin: 0 auto;
+}
+
 .main__container {
   display: flex;
   justify-content: center;
+  padding-bottom: 4em;
+  padding-top: 4em;
 }

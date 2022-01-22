@@ -1,0 +1,19 @@
+.container__footer {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  height: 200px;
+  background: rgb(13, 13, 13);
+  color: #fff;
+}
+.footer__wrappe {
+  width: 100%;
+  max-width: 1280px;
+}
+
+.box-three p {
+  text-align: center;
+  font-family: "Times New Roman";
+  font-weight: normal;
+}

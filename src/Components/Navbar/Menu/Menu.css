@@ -1,0 +1,22 @@
+.container__menu {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 30%;
+}
+
+.nav-link {
+  list-style: none;
+  color: #fff;
+  text-transform: none;
+  text-decoration: none;
+}
+
+.box-one {
+  display: flex;
+  justify-content: space-between;
+}
+
+p {
+  color: #fff;
+}

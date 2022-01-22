@@ -1,31 +1,37 @@
 import React from 'react';
-import { AppBar, Toolbar, IconButton, Badge, Typography } from '@material-ui/core';
+import { IconButton, Badge, Typography } from '@material-ui/core';
 import { ShoppingCart } from '@material-ui/icons';
 import { Link } from 'react-router-dom'
 import { useLocation } from 'react-router-dom';
+import Hero from '../Hero/Hero';
+import './Navbar.css'
+
+import Menu from './Menu/Menu'
 
 const Navbar = (props) => {
 
     const location = useLocation()
     return (
         <div>
-            <AppBar position='fixed' color='inherit'>
-                <Toolbar>
-                    <Typography variant='h1'>
-                        E-shop
-                    </Typography>
+            <div className="container__navbar" position='fixed' color='inherit'>
+                <div className='wrappe__navbar'>
+                    <div className='logo'>
+                        <h1>E-shop</h1>
+                    </div>
+                    <Menu />
                     <div>
                         <Link to="/cart"></Link>
                         { location.pathname === '/' ? (
                             <IconButton component={Link} to="/cart" aria-label="Afficher le panier">
                                 <Badge badgeContent={props.totalItems}>
-                                    <ShoppingCart />
+                                    <p>Panier</p>
                                 </Badge>
                             </IconButton>) : null
                         }
                     </div>
-                </Toolbar>
-            </AppBar>
+                </div>
+            </div>
+            <Hero />
         </div>
     );
 }
